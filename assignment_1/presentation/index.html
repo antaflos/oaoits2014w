@@ -1,197 +1,206 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<title>Business Continuity Management with focus on Backup & Restore</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=792, user-scalable=no">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen.css">
+    <title>Business Continuity Management with focus on Backup & Restore</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=792, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="shower/themes/ribbon/styles/screen.css">
 </head>
 <body class="list">
-	<header class="caption">
-		<h1>Business Continuity Management with focus on Backup & Restore</h1>
-		<p>VU Organizational Aspects of IT Security 2014W</p>
-	</header>
-	<section class="slide cover" id="Cover"><div>
-		<h2>Business Continuity Management with focus on Backup & Restore</h2>
-		<p>VU Organizational Aspects of IT Security 2014W</p>
-		<p>Andreas Ntaflos (e0326302)<br>
-		Andreas Ntaflos (e1328682)<br>
-		Christoph Seidl (e0427434)
-		</p>
-		<!--
-			To apply styles to the certain slides
-			set slide ID to get needed elements
-			-->
-		<style>
+    <header class="caption">
+        <h1>Business Continuity Management with focus on Backup & Restore</h1>
+        <p>VU Organizational Aspects of IT Security 2014W</p>
+    </header>
+    <section class="slide cover" id="Cover"><div>
+        <h2>Business Continuity Management with focus on Backup & Restore</h2>
+        <p>VU Organizational Aspects of IT Security 2014W</p>
+        <p>Andreas Ntaflos (e0326302)<br>
+        Andreas Ntaflos (e1328682)<br>
+        Christoph Seidl (e0427434)
+        </p>
+        <!--
+            To apply styles to the certain slides
+            set slide ID to get needed elements
+            -->
+        <style>
+          .cover h2 {
+            margin:30px 0 0;
+            color:#FFF;
+            text-align:center;
+            font-size:60px;
+          }
           #Cover h2 {
-          	margin:30px 0 0;
-          	color:#FFF;
-          	text-align:center;
-          	font-size:70px;
+            margin:30px 0 0;
+            color:#FFF;
+            text-align:center;
+            font-size:70px;
           }
           #Cover p {
-          	margin:10px 0 0;
-          	text-align:center;
-          	color:#FFF;
-          	font-style:italic;
-          	font-size:20px;
+            margin:10px 0 0;
+            text-align:center;
+            color:#FFF;
+            font-style:italic;
+            font-size:20px;
           }
           #Cover p a {
-          	color:#FFF;
+            color:#FFF;
           }
-		</style>
-	</div></section>
-	<section class="slide"><div>
-		<h2>Business Continuity Management</h2>
-		<blockquote>
-			A management process covering <em>Disaster Recovery Planning</em>
-			and <em>Business Continuity Planning</em> to ensure critical business
-			functions can continue during and after major incidents, with
-			minimal losses of operations, systems and life.
-		</blockquote>
-	</div></section>
-	<section class="slide"><div>
-		<h2>Business Continuity Management</h2>
-		<ul>
-			<li><b>Maximum Tolerable Downtime (MTD)</b>: Amount of time critical business functions may be out of service after a disaster</li>
-			<li><b>Recovery Point Objective (RPO)</b>: Amount of acceptable data, measured in time, that can be lost from a disaster</li>
-			<li><b>Recovery Time Objective (RTO)</b>: Amount of time it may take to restore business functions after a disaster</li>
-			<li><b>Work Recovery Time (WRT)</b>: Amount of time it may take to recover data and bring infrastructure back so that normal operation can continue</li>
-		</ul>
-	</div></section>
-	<section class="slide"><div>
-		<h2>Business Continuity Management</h2>
-        <img src="pictures/mtd_01_normal.svg"/>
-	</div></section>
-	<section class="slide"><div>
-		<h2>Business Continuity Management</h2>
-        <img src="pictures/mtd_02_disaster.svg"/>
-	</div></section>
-	<section class="slide"><div>
-		<h2>Business Continuity Management</h2>
-        <img src="pictures/mtd_03_recovery.svg"/>
-	</div></section>
-	<section class="slide"><div>
-		<h2>Business Continuity Management</h2>
-        <img src="pictures/mtd_04_resume.svg"/>
-	</div></section>
-	<section class="slide"><div>
-		<h2>Business Continuity Management</h2>
-        <img src="pictures/mtd_05_all.svg"/>
-	</div></section>
-	<section class="slide"><div>
-		<h2>Business Impact Analysis</h2>
-		<ul>
-			<li>MTD, RPO, RTO and WRT are the result of a <em>Business Impact Analysis</em> (BIA)</li>
-			<li>BIA identifies business functions, activities and resources, and their criticality levels</li>
-			<li>BIA identifies threats and vulnerabilities to these functions, and calculates the risks for each</li>
-		</ul>
-	</div></section>
-	<section class="slide"><div>
-		<h2>Backup Requirements</h2>
-		<ul>
-			<li>RPO dictates the backup frequency</li>
-			<li>RTO/WRT dictate the kind of backup and restore technology or technique to use</li>
-		</ul>
-	</div></section>
-	<section class="slide"><div>
-		<h2>Risks - Availability</h2>
-		<ul>
-			<li>The backup solution should be autonomous from the main system</li>
-			<li>The backup solution should be easy to access</li>
-		</ul>
-	</div></section>
-	<section class="slide"><div>
-		<h2>Risks - Integrity</h2>
-		<ul>
-			<li>The backup solution should constantly create backups of the system</li>
-			<li>The backup solution should guaranty the integrity of the data</li>
-			<li>The backup solution should also contain a version control system</li>
-		</ul>
-	</div></section>
-	<section class="slide"><div>
-		<h2>Risks - Confidentiality</h2>
-		<ul>
-			<li>The backup solution should have built-in security features:</li>
-			<ul>
-				<li>Encryption of the data</li>
-				<li>User access control</li>
-			</ul>
-		</ul>
-	</div></section>
-	<section class="slide"><div>
-		<h2>Controls</h2>
-		<h3>Built-in tests for data integrity:</h3>
-		<ul>
-			<li>reporting and error analysis tools</li>
-			<li>self-testing tools</li>
-		</ul>
-	</div></section>
-	<section class="slide"><div>
-		<h2>Controls</h2>
-		<h3>Monitoring:</h3>
-		<ul>
-			<li>Direct access to the backups</li>
-			<li>Message Services</li>
-		</ul>
-	</div></section>
-	<section class="slide"><div>
-		<h2>Controls</h2>
-		<h3>Version control system</h3>
-		<h3>User authentication</h3>
-	</div></section>
-	<section class="slide"><div>
-		<h2>Tools</h2>
-		<h3>Hardware and software backup solutions</h3>
-		<ul>
-			<li>Pros: Security, Access, Knowledge of the functionality</li>
-			<li>Cons: Complexity, Cost (Hardware), Adaptability, Scalability</li>
-			<ul>
-				<li>IBM Tivoli Storage Manager: US$ 100-200 per Processor Value Unit</li>
-			</ul>
-		</ul>
-	</div></section>
-	<section class="slide"><div>
-		<h2>Tools</h2>
-		<h3>Cloud backup solutions</h3>
-		<ul>
-			<li>Pros: Distributed solution, Complexity, Cost</li>
-			<li>Cons: Security, Access, Knowledge of the functionality</li>
-			<ul>
-				<li>Amazon S3: US$ 15 per gigabyte and month</li>
-			</ul>
-		</ul>
-	</div></section>
-	<section class="slide"><div>
-		<h2>Tools</h2>
-		<h3>Deduplication backup solutions</h3>
-		<ul>
-			<li>Pros: Data size</li>
-			<li>Cons: Integrity, Performance</li>
-			<ul>
-				<li>Dell DR6000: US$ 60.000 for 9TB of data</li>
-				<li>EMC Data Domain: US$ 45.000 for 133TB of data</li>
-			</ul>
-		</ul>
-	</div></section>
-	<section class="slide"><div>
-		<h2>Challenges and potential problems</h2>
-		<ul>
-			<li>Scalability</li>
-			<li>Interoperability</li>
-			<li>Vendor lock-in</li>
-			<li>One size fits all?</li>
-		</ul>
+        </style>
     </div></section>
-	<section class="slide"><div>
-		<h2>Future Developments/Future Requirements</h2>
-		<ul>
-			<li>Shift from traditional data structures to "big data"</li>
-			<li>Business expansion means continuous re-evaluation BIA results, changes to RPO and RTO/WRT requirements</li>
-		</ul>
-	</div></section>
-	<div class="progress"><div></div></div>
-	<script src="shower/shower.min.js"></script>
+    <section class="slide"><div>
+        <h2>Business Continuity Management</h2>
+        <blockquote>
+            A management process covering <em>Disaster Recovery Planning</em>
+            and <em>Business Continuity Planning</em> to ensure critical business
+            functions can continue during and after major incidents, with
+            minimal losses of operations, systems and life.
+        </blockquote>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Business Continuity Management</h2>
+        <ul>
+            <li><b>Maximum Tolerable Downtime (MTD)</b>: Amount of time critical business functions may be out of service after a disaster</li>
+            <li><b>Recovery Point Objective (RPO)</b>: Amount of acceptable data, measured in time, that can be lost from a disaster</li>
+            <li><b>Recovery Time Objective (RTO)</b>: Amount of time it may take to restore business functions after a disaster</li>
+            <li><b>Work Recovery Time (WRT)</b>: Amount of time it may take to recover data and bring infrastructure back so that normal operation can continue</li>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Business Continuity Management</h2>
+        <img src="pictures/mtd_01_normal.svg"/>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Business Continuity Management</h2>
+        <img src="pictures/mtd_02_disaster.svg"/>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Business Continuity Management</h2>
+        <img src="pictures/mtd_03_recovery.svg"/>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Business Continuity Management</h2>
+        <img src="pictures/mtd_04_resume.svg"/>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Business Continuity Management</h2>
+        <img src="pictures/mtd_05_all.svg"/>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Business Impact Analysis</h2>
+        <ul>
+            <li>MTD, RPO, RTO and WRT are the result of a <em>Business Impact Analysis</em> (BIA)</li>
+            <li>BIA identifies business functions, activities and resources, and their criticality levels</li>
+            <li>BIA identifies threats and vulnerabilities to these functions, and calculates the risks for each</li>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Backup Requirements</h2>
+        <ul>
+            <li>RPO dictates the backup frequency</li>
+            <li>RTO/WRT dictate the kind of backup and restore technology or technique to use</li>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Risks - Availability</h2>
+        <ul>
+            <li>The backup solution should be autonomous from the main system</li>
+            <li>The backup solution should be easy to access</li>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Risks - Integrity</h2>
+        <ul>
+            <li>The backup solution should constantly create backups of the system</li>
+            <li>The backup solution should guaranty the integrity of the data</li>
+            <li>The backup solution should also contain a version control system</li>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Risks - Confidentiality</h2>
+        <ul>
+            <li>The backup solution should have built-in security features:</li>
+            <ul>
+                <li>Encryption of the data</li>
+                <li>User access control</li>
+            </ul>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Controls</h2>
+        <h3>Built-in tests for data integrity:</h3>
+        <ul>
+            <li>reporting and error analysis tools</li>
+            <li>self-testing tools</li>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Controls</h2>
+        <h3>Monitoring:</h3>
+        <ul>
+            <li>Direct access to the backups</li>
+            <li>Message Services</li>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Controls</h2>
+        <h3>Version control system</h3>
+        <h3>User authentication</h3>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Tools</h2>
+        <h3>Hardware and software backup solutions</h3>
+        <ul>
+            <li>Pros: Security, Access, Knowledge of the functionality</li>
+            <li>Cons: Complexity, Cost (Hardware), Adaptability, Scalability</li>
+            <ul>
+                <li>IBM Tivoli Storage Manager: US$ 100-200 per Processor Value Unit</li>
+            </ul>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Tools</h2>
+        <h3>Cloud backup solutions</h3>
+        <ul>
+            <li>Pros: Distributed solution, Complexity, Cost</li>
+            <li>Cons: Security, Access, Knowledge of the functionality</li>
+            <ul>
+                <li>Amazon S3: US$ 15 per gigabyte and month</li>
+            </ul>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Tools</h2>
+        <h3>Deduplication backup solutions</h3>
+        <ul>
+            <li>Pros: Data size</li>
+            <li>Cons: Integrity, Performance</li>
+            <ul>
+                <li>Dell DR6000: US$ 60.000 for 9TB of data</li>
+                <li>EMC Data Domain: US$ 45.000 for 133TB of data</li>
+            </ul>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Challenges and potential problems</h2>
+        <ul>
+            <li>Scalability: more data requires more resources</li>
+            <li>Interoperability: Backup solution should support all kinds of IT systems operated by business</li>
+            <li>Vendor lock-in: Backup data "held hostage" by vendor, "vertical integration" by vendor</li>
+            <li>One size fits all?</li>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Future Developments/Future Requirements</h2>
+        <ul>
+            <li>Shift from traditional data structures to "big data"</li>
+            <li>Business expansion means continuous re-evaluation of BIA results, changes to RPO and RTO/WRT requirements</li>
+        </ul>
+    </div></section>
+    <section class="slide cover"><div>
+        <h2>Questions?</h2>
+    </div></section>
+    <div class="progress"><div></div></div>
+    <script src="shower/shower.min.js"></script>
 </body>
 </html>
