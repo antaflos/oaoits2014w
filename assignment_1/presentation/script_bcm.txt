@@ -1,0 +1,104 @@
+Business Continuity Management
+
+Eine Managementmethode um sicherzustellen, dass die Geschäftstätigkeit auch in
+Krisensituationen möglichst verlustfrei weitergeführt werden kann. Dabei werden
+Strategien, Pläne, Prozesse, etc entwickelt und dokumentiert, um den
+Fortbestand des Unternehmens zu sichern, wenn ein Risiko mit hohem
+Schadensausmaß eintritt, beispielsweise Naturkatastrophen oder Unfälle. Hier
+möchte man zum Beispiel die Schadenshöhe minimieren oder sicherstellen, dass
+man trotz Schäden an Gebäuden, Infrastruktur oder auch Personal möglichst
+geringe Unterbrechungen in der Geschäftstätigkeit und Geschäftsprozessen hat.
+
+Ein wichtiger Teil von Business Continuity Management ist das Disaster
+Recovery, bei dem es hauptsächlich darum geht, die kritischen
+Unternehmens-IT-Systeme nach einem Disaster wieder zum Laufen zu bringen. In der
+Literatur wird oft konkret zwischen dem Disaster Recovery Plan und dem
+allgemeineren Business Continuity Plan unterschieden. Im Business Continuity
+Plan wird auf mehr die Fortführung der Geschäftstätigkeit im Sinne von
+Business-Prozessen allgemein eingegangen, was nur teilweise oder gar nicht mit
+dem IT-Betrieb zu tun haben muss.
+
+Die wichtigsten Metriken oder Kennzahlen für das Disaster Recovery sind MTD, RPO, RTO und WRT.
+
+MTD ist die Maximum Tolerable Downtime, also wie lange können kritische Systeme
+und Geschäftsprozesse offline bzw nicht verfügbar sein, ohne dass das
+Unternehmen daran zugrunde geht.
+
+RPO ist die Recovery Point Objective, die festlegt, welche Menge an Daten,
+meistens gemessen in Zeiteinheiten, verloren gehen kann, ohne dass dadurch
+irreparable Schäden für das Unternehmen entstehen.
+
+RTO ist die Recovery Time Objective, streng genommen die Zeit, die man
+benötigen darf, um Systeme und Prozesse wieder in den korrekten Betriebszustand
+zu bringen. Streng genommen zählt hier die Wiederherstellung von Daten nicht dazu.
+
+WRT ist die Work Recovery Time, die restliche Zeit, die bis zum Ablauf der MTD
+noch übrig ist und in der die Infrastruktur wieder in den Zustand gebracht
+wird, an dem der Normalbetrieb wieder aufgenommen werden kann. Hier zählt das
+Wiederherstellen von Daten dazu.
+
+In diverser Literatur und Meinungen wird aber oft nicht groß zwischen RTO und
+WRT unterschieden, sondern alle Maßnahmen zur Wiederherstellung des
+Normalbetriebs werden unter RTO zusammengefasst, Wiederherstellung von Daten
+inklusive.
+
+Hier sehen wir eine einfache Illustration dieser Metriken.
+
+Business Impact Analysis
+
+Klarerweise unterschieden sich RPO, RTO, WRT und so weiter von System zu System
+und von Geschäftsprozess zu Geschäftsprozess.
+
+Wie kommt man also zu den Werten für diese Metriken? Sie werden nicht durch das
+Backupsystem oder seine Features festgelegt, auch nicht durch den
+IT-Leiter oder den Backup-Administrator.
+
+Die Grundlage für Disaster Recovery und Business Continuity Planung ist die Business Impact Analyse.
+
+Die Business Impact Analyse ist eine funktionale Analyse, bei der die
+verschiedenen Geschäftsprozesse, Ressourcen, Systeme und so weiter
+identifiziert werden, die das Unternehmen ausmachen, und festgelegt, wie
+kritisch welche Prozesse und Ressourcen sind, und wie lange das Unternehmen im
+Katastrophenfall ohne sie auskommen kann.
+
+Als Nächstes werden Risiken und Bedrohungen für diese Prozesse und Systeme
+identifiziert. Dabei muss auch auf Abhängigkeiten von Prozessen, Ressourcen und
+Systemen unter einander eingegangen werden.
+
+Hieraus ergibt sich die besprochene MTD, oft auch Maximum Period of Disruption
+genannt. Wenn die überschritten wird, kann der Schaden für das Unternehmen zu
+groß sein und es geht ein.
+
+Daraus ergibt sich eine Reihung von Prozessen, Ressourcen und Systemen nach
+ihrer Kritikalität, also was muss im Disasterfall zuerst repariert werden, und
+was kann man hinten anstellen.
+
+Beispiel Email: man könnte meinen, das ist im Katastrophenfall eher unwichtig,
+aber wenn sich in der Business Impact Analyse herausstellt, dass das
+Emailsystem für die meisten Mitarbeiter ihre wichtigste "Knowledgebase"
+darstellt und ohne Email niemand mehr weiß, wo hinten und vorne ist, dann ist
+die Wiederherstellung des Emailsystems kritisch.
+
+Beispiel: Unternehmen verliert Geld, wenn die Zuliefererdatenbank offline ist, weil keine neuen Bauteile oder Komponenten bestellt werden können und dadurch die Produktion lahmgelegt wird.
+
+Backup-Anforderungen
+
+Für Backup ergeben sich daraus konkrete Anforderungen, nämlich durch die
+festgestellten RPOs und RTOs/WRTs.
+
+Wie oft Backups für ein bestimmtes System gemacht werden müssen, ist direkt
+abhängig von der RPO für dieses System. Wenn die RPO beispielsweise zwei
+Stunden ist, dann muss zumindest alle zwei Stunden ein Backup gemacht werden.
+Wenn die RPO eine Woche ist, dann wöchentlich, und wenn die RPO gleich Null
+ist, dann dürfen überhaupt keine Daten von diesem System verloren gehen, und
+aus Backup wird synchrone Replikation, vermutlich on-site und off-site.
+
+Welche Backuptechnologie eingesetzt wird, hängt außerdem von der RTO bzw WRT
+ab. Wenn die RTO für ein System vier Stunden beträgt, aber das Wiederherstellen
+der Daten sechs Stunden dauert, weil die Tapes so langsam sind, dann sind Tapes
+hier die falsche Backuptechnologie. Bei einer RTO bzw WRT gleich Null ist man
+wieder bei synchroner Replikation on- und off-site, sodass das System auch im
+Katastrophenfall verfügbar bleibt und den aktuellen Datenstand enthält.
+
+Daraus ist ersichtlich: je geringer RPO und RTO bzw WRT, desto mehr Mittel muss
+das Unternehmen in Backup investieren.
