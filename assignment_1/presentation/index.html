@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<title>Businss Continuity Management with focus on Backup & Restore</title>
+	<title>Business Continuity Management with focus on Backup & Restore</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=792, user-scalable=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -9,11 +9,11 @@
 </head>
 <body class="list">
 	<header class="caption">
-		<h1>Businss Continuity Management with focus on Backup & Restore</h1>
+		<h1>Business Continuity Management with focus on Backup & Restore</h1>
 		<p>VU Organizational Aspects of IT Security 2014W</p>
 	</header>
 	<section class="slide cover" id="Cover"><div>
-		<h2>Businss Continuity Management with focus on Backup & Restore</h2>
+		<h2>Business Continuity Management with focus on Backup & Restore</h2>
 		<p>VU Organizational Aspects of IT Security 2014W</p>
 		<p>Andreas Ntaflos (e0326302)<br>
 		Andreas Ntaflos (e1328682)<br>
@@ -43,23 +43,61 @@
 		</style>
 	</div></section>
 	<section class="slide"><div>
-		<h2>Businss Continuity Management</h2>
-		Allgemeine Definition und Diskussion von BCM (kurz)
+		<h2>Business Continuity Management</h2>
+		<blockquote>
+			A management process covering <em>Disaster Recovery Planning</em>
+			and <em>Business Continuity Planning</em> to ensure critical business
+			functions can continue during and after major incidents, with
+			minimal losses of operations, systems and life.
+		</blockquote>
 	</div></section>
 	<section class="slide"><div>
-		<h2>Businss Impact Analysis</h2>
-		Services identifizieren, Ausfallsszenarien, "wogegen schützen wir uns"
-		(User error, Desasterzustände, etc), daraus ergeben sich RPO, RTO, WRT,
-		MTD, ...
+		<h2>Business Continuity Management</h2>
+		<ul>
+			<li><b>Maximum Tolerable Downtime (MTD)</b>: Amount of time critical business functions may be out of service after a disaster</li>
+			<li><b>Recovery Point Objective (RPO)</b>: Amount of acceptable data, measured in time, that can be lost from a disaster</li>
+			<li><b>Recovery Time Objective (RTO)</b>: Amount of time it may take to restore business functions after a disaster</li>
+			<li><b>Work Recovery Time (WRT)</b>: Amount of time it may take to recover data and bring infrastructure back so that normal operation can continue</li>
+		</ul>
 	</div></section>
 	<section class="slide"><div>
-		<h2>Features/Requirements</h2>
-		Anforderungen an Backup und Restore auf Basis der BIA und der daraus
-		abgeleiteten Bedrohungsszenarien bzw Wiederherstellzeiten
+		<h2>Business Continuity Management</h2>
+        <img src="pictures/mtd_01_normal.svg"/>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Business Continuity Management</h2>
+        <img src="pictures/mtd_02_disaster.svg"/>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Business Continuity Management</h2>
+        <img src="pictures/mtd_03_recovery.svg"/>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Business Continuity Management</h2>
+        <img src="pictures/mtd_04_resume.svg"/>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Business Continuity Management</h2>
+        <img src="pictures/mtd_05_all.svg"/>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Business Impact Analysis</h2>
+		<ul>
+			<li>MTD, RPO, RTO and WRT are the result of a <em>Business Impact Analysis</em> (BIA)</li>
+			<li>BIA identifies business functions, activities and resources, and their criticality levels</li>
+			<li>BIA identifies threats and vulnerabilities to these functions, and calculates the risks for each</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Backup Requirements</h2>
+		<ul>
+			<li>RPO dictates the backup frequency</li>
+			<li>RTO/WRT dictate the kind of backup and restore technology or technique to use</li>
+		</ul>
 	</div></section>
 	<section class="slide"><div>
 		<h2>Risks</h2>
-		Availablity, Integrity, Confidentiality von Backups?
+		Availability, Integrity, Confidentiality von Backups?
 	</div></section>
 	<section class="slide"><div>
 		<h2>Controls</h2>
