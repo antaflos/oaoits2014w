@@ -96,24 +96,100 @@
 		</ul>
 	</div></section>
 	<section class="slide"><div>
-		<h2>Risks</h2>
-		Availability, Integrity, Confidentiality von Backups?
+		<h2>Risks - Availability</h2>
+		<ul>
+			<li>The backup solution should be autonomous from the main system</li>
+			<li>The backup solution should be easy to access</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Risks - Integrity</h2>
+		<ul>
+			<li>The backup solution should constantly create backups of the system</li>
+			<li>The backup solution should guaranty the integrity of the data</li>
+			<li>The backup solution should also contain a version control system</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Risks - Confidentiality</h2>
+		<ul>
+			<li>The backup solution should have built-in security features:</li>
+			<ul>
+				<li>Encryption of the data</li>
+				<li>User access control</li>
+			</ul>
+		</ul>
 	</div></section>
 	<section class="slide"><div>
 		<h2>Controls</h2>
-		Abfangen von Risiken, Sicherstellen von A, I, C von Backups, Monitoring, Restore tests, ...
+		<h3>Built-in tests for data integrity:</h3>
+		<ul>
+			<li>reporting and error analysis tools</li>
+			<li>self-testing tools</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Controls</h2>
+		<h3>Monitoring:</h3>
+		<ul>
+			<li>Direct access to the backups</li>
+			<li>Message Services</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Controls</h2>
+		<h3>Version control system</h3>
+		<h3>User authentication</h3>
 	</div></section>
 	<section class="slide"><div>
 		<h2>Tools</h2>
-		Kurze Auswahl an technischen Backuplösungen und -konzepten
+		<h3>Hardware and software backup solutions</h3>
+		<ul>
+			<li>Pros: Security, Access, Knowledge of the functionality</li>
+			<li>Cons: Complexity, Cost (Hardware), Adaptability, Scalability</li>
+			<ul>
+				<li>IBM Tivoli Storage Manager: US$ 100-200 per Processor Value Unit</li>
+			</ul>
+		</ul>
 	</div></section>
 	<section class="slide"><div>
-		<h2>Challenges/Potential problems</h2>
-	    Integrierbarkeit, Durchführbarkeit, Preis, etc
+		<h2>Tools</h2>
+		<h3>Cloud backup solutions</h3>
+		<ul>
+			<li>Pros: Distributed solution, Complexity, Cost</li>
+			<li>Cons: Security, Access, Knowledge of the functionality</li>
+			<ul>
+				<li>Amazon S3: US$ 15 per gigabyte and month</li>
+			</ul>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Tools</h2>
+		<h3>Deduplication backup solutions</h3>
+		<ul>
+			<li>Pros: Data size</li>
+			<li>Cons: Integrity, Performance</li>
+			<ul>
+				<li>Dell DR6000: US$ 60.000 for 9TB of data</li>
+				<li>EMC Data Domain: US$ 45.000 for 133TB of data</li>
+			</ul>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Challenges and potential problems</h2>
+		<ul>
+			<li>Scalability</li>
+			<li>Interoperability</li>
+			<li>Vendor lock-in</li>
+			<li>One size fits all?</li>
+		</ul>
     </div></section>
 	<section class="slide"><div>
 		<h2>Future Developments/Future Requirements</h2>
-		Zukünftige Anforderungen, zB wenn Datenmengen wachsen, neue BIA neue Ergebnisse liefert, Anforderungen an RPO/RTO/etc steigen
+		<ul>
+			<li>Shift from traditional data structures to "big data"</li>
+			<li>Business expansion means continuous re-evaluation BIA results, changes to RPO and RTO/WRT requirements</li>
+		</ul>
 	</div></section>
 	<div class="progress"><div></div></div>
 	<script src="shower/shower.min.js"></script>
