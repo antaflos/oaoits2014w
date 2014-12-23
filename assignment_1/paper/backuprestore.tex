@@ -1,0 +1,246 @@
+\documentclass[a4paper,11pt,onecolumn]{scrartcl}
+
+\usepackage{etex}
+\usepackage{palatino}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[tracking]{microtype}
+\usepackage{url}
+\usepackage{doi}
+\usepackage{hyperref}
+\usepackage[]{color}
+\usepackage{siunitx}
+\usepackage[shortlabels]{enumitem}
+\usepackage{graphicx}
+
+\graphicspath{{images/}}
+
+\definecolor{grey}{rgb}{0.5,0.5,0.5}
+\definecolor{darkgreen}{cmyk}{0.7, 0, 1, 0.5}
+\definecolor{LinkColor}{rgb}{0,0,0.5}
+
+\setlist{noitemsep}
+
+\pagestyle{headings}
+\hypersetup{%%Hyperref stuff
+	pageanchor=false,
+	pdfpagelabels=false,
+	final,
+	colorlinks=true, 
+	linkcolor=LinkColor,
+	citecolor=LinkColor,
+	filecolor=LinkColor,
+	menucolor=LinkColor,
+	urlcolor=LinkColor,
+	pdftitle={}
+}
+
+\newcommand{\command}[1]{`\texttt{#1}'}
+\newcommand{\code}[1]{\small\texttt{#1}\normalsize}
+
+\begin{document}
+
+\title{Business Continuity Management with focus on Backup and Restore}
+\publishers{\small{Organizational Aspects of IT Security\\VU 2.0 188.312 2014W}}
+\subject{Assignment 1}
+
+\author{Andreas Ntaflos\thanks{Matrikelnummer e0326302, \href{mailto:daff@pseudoterminal.org}{\code{daff@pseudoterminal.org}}}
+\and Andreas Ntaflos\thanks{Matrikelnummer e1328682, \href{mailto:e1328682@student.tuwien.ac.at}{\code{e1328682@student.tuwien.ac.at}}}
+\and Christoph Seidl\thanks{Matrikelnummer e0427434, \href{mailto:e0427434@student.tuwien.ac.at}{\code{e0427434@student.tuwien.ac.at}}}}
+
+\maketitle
+
+\begin{abstract}
+In this document we examine the implementation of company-wide data
+backup and restore solutions from a Business Continuity Management
+approach, specifically in a Disaster Recovery context. We discuss
+relevant concepts such as Business Continuity Planning and Disaster
+Recovery Planning, key metrics such as Recovery Point Objective,
+Recovery Time Objective and others which define the requirements of
+backup and restore solutions and techniques, and how these metrics must
+be based on a Business Impact Analysis to be useful in the business
+context. We look at the risks associated with backup and restore from an
+information security point of view and how to control for these risks
+when implementing a backup solution.
+
+After reviewing different, representative backup solutions and
+techniques and discussing their merits and drawbacks---again from an
+information security point of view---we highlight various challenges and
+potential problems a company faces when implementing backup solutions.
+Finally we discuss future developments and how backup and disaster
+recovery requirements may change over time.
+\end{abstract}
+
+\section{Business Continuity Management}
+% What is BCM?
+% Business Continuity Plan, Disaster Recovery Plan
+% MTD, RPO, RTO, WRT
+
+\emph{Business Continuity Management} (BCM) is a strategic management
+process covering \emph{Business Continuity Planning} (BCP) and
+\emph{Disaster Recovery Planning} (DRP) to ensure critical business
+functions can continue during and after major incidents (flood, fire,
+earthquake, terrorism, vandalism, \ldots) with minimal
+loss of operations, systems and life.
+
+BCM provides a framework for integrating resilience with the capability
+for effective responses that protects the interests of an organisation's
+key stakeholders. The main objective of BCM is to allow the organisation
+to continue to perform business operations under various
+conditions~\cite{harriscissp}.
+
+In BCM the two most important artifacts are the \emph{Business
+	Continuity Plan} (BCP) and the \emph{Disaster Recovery Plan} (DRP).
+The BCP ensures that critical business functions can continue to operate
+during a disaster and its aftermath. This may include moving critical
+equipment to standby locations, bringing up emergency power generators,
+performing normally automated business operations manually or
+temporarily hiring additional personnel.
+
+The DRP is usually a part of the BCP and is focused on the IT
+infrastructure itself. It defines how to prepare the IT infrastructure
+for a disaster, what to do in the event of a disaster and how to restore
+IT operations so that the business can go back to operating normally.
+The DRP's scope is thus much narrower and technology-focused than the
+BCP as a whole.
+
+Disaster recovery can be quantified by four key metrics:
+
+\begin{description}
+	\item[Maximum Tolerable Downtime (MTD)] The maximum outage
+		time of a critical business function or system that can be
+		endured before the impact on the company becomes unacceptably
+		severe
+	\item[Recovery Point Objective (RPO)] The amount of data loss,
+		measured in time, that can be sustained from a disaster without
+		causing irreparable damage to the company and its business
+		functions
+	\item[Recovery Time Objective (RTO)] The time it may take to restore
+		business functions after a disaster
+	\item[Work Recovery Time (WRT)] The time it may take to recover data
+		and bring infrastructure back so that normal operation can
+		continue
+\end{description}
+
+The MTD consists of the RTO and the WRT while the RPO exists
+independently of the MTD. Figure~\ref{fig:mtd_all} shows the metrics in
+relation to each other. The MTD is also known as the \emph{Maximum
+	Tolerable Period of Disruption} (MTPD).
+
+It should be noted that IT vendors of backup and DR solutions tend to
+conflate RTO and WRT into just RTO, which makes sense considering that a
+business function or process can hardly be declared ``restored'' when it
+is still missing its key business data. We will refer to RTO in the same
+manner in the remainder of this document.
+
+\begin{figure}[t]
+	\begin{center}
+		\begin{scriptsize}
+			\def\svgwidth{\textwidth}
+			\input{images/mtd_05_all.pdf_tex}
+		\end{scriptsize}
+	\end{center}
+	\caption{The disaster recovery metrics in relation to each other on
+		a time line}
+	\label{fig:mtd_all}
+\end{figure}
+
+The values for MTD, RPO and RTO usually differ between systems,
+business functions and processes. It is thus important not to define
+them ad-hoc and on a whim but on a solid understanding of the business
+functions in question. This understanding comes from the Business Impact
+Analysis.
+
+\section{Business Impact Analysis}
+% What is it? What information does it provide?
+% How to conduct?
+
+The \emph{Business Impact Analysis} (BIA) is a functional analysis that
+identifies the various business processes, functions, activities,
+resources and systems that define the business. It assigns them
+criticality levels and identifies threats and vulnerabilities for these
+functions and calculates the risk for each. The Business Impact Analysis
+is a key step in creating a disaster recovery plan and defining backup
+requirements.
+
+In any reasonably sized organisation a BIA cannot be conducted by a
+single person or team without the help and input of key employees such
+as department heads and process owners. Thus the data for the BIA is
+gathered by means of interviews, questionnaires, workshops, existing
+documentation, etc. The result of the data gathering phase is a
+comprehensive list of business processes, functions and resources
+relevant to the organisation.
+
+After all business processes and functions have been identified these
+resources need to be categorised by their criticality to the
+organisation. A resource is regarded as critical when its availability
+is imperative for the survival of the organisation and downtime of that
+resource is unacceptable. The most critical resources will receive the
+highest priority when recovering from a disaster while less- or
+non-critical systems will receive attention only after all critical
+systems have been dealt with. It is at this step that concrete values
+for MTD (MTPD), and later RPO and RTO of a critical resource can first
+be estimated.
+
+MTD values can be categorised into \emph{Nonessential}, \emph{Normal},
+\emph{Important}, \emph{Urgent} and \emph{Critical}. The identified
+business resources are each assigned one of these categories and treated
+accordingly. The shorter the MTD, the more critical the resource, and
+the higher the priority it will be afforded when recovering.
+
+When conducting the BIA it is important to consider interdependencies
+between business functions, resources or systems. Most business
+functions do not stand alone but depend on other business functions and
+systems, so when estimating the MTD these dependencies need to be taken
+into account. 
+
+The next step is threat and risk assessment. This includes identifying
+vulnerabilities, threats and to the most critical business resources,
+determining the impact each threat may have and the likelihood of its
+occurrence. Vulnerabilities in resources are single points of failure or
+security issues, threats may include sabotage, vandalism or theft but
+also natural disasters or major utilities outages. The risk to a
+business function or resource is thus calculated as $\textrm{Risk} =
+\textrm{Threat} \times \textrm{Impact} \times \textrm{Probability}$. 
+
+At this point it is important to note that while identifying and
+planning for specific threats with high impact or likelihood is prudent
+it is not useful to try to account and prepare for \emph{all} possible
+threats. Instead the organisation should prepare for the loss of any or
+all business resources, regardless of specific threats. This will
+provide the organisation with the proper flexibility when the time of
+disaster recovery comes.
+
+After determining the MTD for critical business functions taking into
+account their dependencies on other business functions and resources
+reasonable values for RPO and RTO can be defined. These are more
+meaningful than just the MTD in a disaster recovery context and are an
+important basis for each critical business function's disaster recovery
+strategy.
+
+\section{Disaster Recovery Strategies}
+% Backup/Restore and DR overlap greatly and cannot be discussed
+% independently of each other.
+% Requirements for backup systems and implementations based on RPO and RTO/WRT
+% Point in time recovery? 
+% Disaster recovery details and strategies: failover, failback; hot, warm, cold standby
+% Risks: availability, integrity, confidentiality
+% Risks in availability: locality of backups (where are they stored?)
+% Risks in integrity: 
+% Controls: restore tests, integrity tests, backup monitoring
+% Archiving:
+% Financial and business records need to be archived for seven years or longer
+% § 132 Bundesabgabenordnung
+
+\section{Review of backup tools and solutions}
+
+\section{Challenges and potential problems}
+
+\section{Future developments and requirements}
+
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{backuprestore}
+
+\end{document}
