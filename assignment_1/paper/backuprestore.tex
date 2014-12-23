@@ -13,8 +13,37 @@
 \usepackage{siunitx}
 \usepackage[shortlabels]{enumitem}
 \usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{stringenc}
+\usepackage{pdfescape}
 
+\makeatletter
+\renewcommand*{\UTFviii@defined}[1]{%
+  \ifx#1\relax
+    \begingroup
+      % Remove prefix "\u8:"
+      \def\x##1:{}%
+      % Extract Unicode char from command name
+      % (utf8.def does not support surrogates)
+      \edef\x{\expandafter\x\string#1}%
+      \StringEncodingConvert\x\x{utf8}{utf16be}% convert to UTF-16BE
+      % Hexadecimal representation
+      \EdefEscapeHex\x\x
+      % Enhanced error message
+      \PackageError{inputenc}{Unicode\space char\space \string#1\space
+                              (U+\x)\MessageBreak
+                              not\space set\space up\space
+                              for\space use\space with\space LaTeX}\@eha
+    \endgroup
+  \else\expandafter
+    #1%
+  \fi
+}
+\makeatother
+
+\bibliographystyle{plain}
 \graphicspath{{images/}}
+\DeclareUnicodeCharacter{FEFF}{~}
 
 \definecolor{grey}{rgb}{0.5,0.5,0.5}
 \definecolor{darkgreen}{cmyk}{0.7, 0, 1, 0.5}
@@ -41,7 +70,8 @@
 
 \begin{document}
 
-\title{Business Continuity Management with focus on Backup and Restore}
+\title{Business Continuity Management with focus on Disaster Recovery
+	and Data Backup}
 \publishers{\small{Organizational Aspects of IT Security\\VU 2.0 188.312 2014W}}
 \subject{Assignment 1}
 
@@ -219,7 +249,7 @@ meaningful than just the MTD in a disaster recovery context and are an
 important basis for each critical business function's disaster recovery
 strategy.
 
-\section{Disaster Recovery Strategies}
+\section{Backup Requirements and Disaster Recovery Strategies}
 % Backup/Restore and DR overlap greatly and cannot be discussed
 % independently of each other.
 % Requirements for backup systems and implementations based on RPO and RTO/WRT
@@ -233,14 +263,69 @@ strategy.
 % Financial and business records need to be archived for seven years or longer
 % § 132 Bundesabgabenordnung
 
-\section{Review of backup tools and solutions}
+Disaster recovery strategies for data and backup strategies are directly
+related. The backup and recovery strategy to choose for a business
+function or resource depends entirely on its defined RPO and RTO,
+determined during the Business Impact Analysis.
 
-\section{Challenges and potential problems}
+The backup frequency of a resource or system is defined by its RPO. When
+the RPO is two hours then a backup has to be done at least every two
+hours. When the RPO is a week then weekly backups are adequate. And when
+the RPO is zero then regular backups are not enough any more, because no
+potential data loss is allowed. In this case advanced backup/recovery
+techniques like synchronous mirroring off-site have to be employed.
 
-\section{Future developments and requirements}
+What kind of backup technology and recovery strategy to use for a
+business resource is also directly influenced by the RTO. When the RTO
+of a resource is defined as four hours, but restoring data from tapes
+takes twelve then tape backup is not the right choice. In case of an RTO
+of zero the resource and its data must be available and functional
+throughout the disaster with no downtime at all. This calls again for
+advanced techniques like synchronous mirroring of data to a failover
+site that can take over operations from the primary site immediately. We
+will look at the various backup techniques and recovery strategies in
+this section.
+
+According to~\cite{brooks2002disaster} recovery strategies can be
+divided into seven tiers. The lower the tier the higher the values for
+RTO and RPO can be and the ``cheaper'' the recovery strategy can be.
+Figure~\ref{fig:seventier} summarises the tiers and their properties.
+Other definitions for these seven (or more) tiers exist in literature;
+no standard definitions has been established so far.
+
+\begin{figure}[t]
+    \begin{center}
+    \begin{tabular}{clll}
+		\toprule
+    	Tier & Description \\
+        \midrule
+        0    & Do nothing, no off-site data \\
+    	1    & Data backup shipped off-site (``PTAM'')  \\
+    	2    & Data backup shipped off-site with hot-site  \\
+    	3    & Electronic vaulting  \\
+    	4    & Electronic vaulting to hot-site (active secondary site) \\
+    	5    & Two-site two-phase commit  \\
+    	6    & Zero data loss  \\
+		\bottomrule
+    \end{tabular}
+    \end{center}
+    \caption{Seven-tier disaster recovery
+    	strategies with according RTOs and RPOs
+    	(Source:~\cite{wiboonratr2009optimal})}
+    \label{fig:seventier}
+\end{figure}
+
+\input{risks}
+
+\input{challenges}
+
+%\section{Review of backup tools and solutions}
+
+%\section{Challenges and potential problems}
+
+%\section{Future developments and requirements}
 
 \nocite{*}
-\bibliographystyle{plain}
 \bibliography{backuprestore}
 
 \end{document}
