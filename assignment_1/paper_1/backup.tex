@@ -1,0 +1,199 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage[ngerman]{babel} 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+\section{Potential risks of backup solutions}
+The loss of the information system can be devastating for any company. As previously mentioned it will take some time to restart and restore the services. Incomplete data will slow down that process or even prevent it.  One way to protect against threats is to use backup systems. Is it sufficient enough to have a backup system and just backup the data. Many companies have learned it the hard way, that performing backups on data is not enough. After incidents occurred they were not able to recover as they planned. 
+\newline
+\newline
+Backup solutions are not the universal remedy against any unforeseen  incidents. They require intensive planning to prevent potential risks. 
+\subsection{Availability}
+
+As previously mentioned one of the largest misconceptions about backup systems is that investing a large amount of money in the best solutions guarantee the possible recovery of the IT infrastructure. There are many factors to consider when building a backup solution for a company. One factor is the availability.
+\newline
+\newline
+After any type of incidents it is not ensured that the backup system or even the backup data is available.  There are two components that have to be considered when talking about availability of backup solutions. The hardware and the software.
+\newline
+\newline
+The hardware is the component where the actual data is stored. The technologies in which the data is stored changed over the history of computers from punched cards to modern hard disks, but the issues remain the same. Hardware is susceptible to physical force.  Hard disks are not very robust and even the smallest amount of force can damage it beyond repair. When choosing a backup solution this issue needs to be considered. While many of the incidents the company will face are rather small like power outages it is not impossible that the company will face larger incidents like natural disasters. When hit by an earthquake the chances are very high that if any type of damage occur on the information system the same damages will occur with the backup system if the company has not implemented any type of protection mechanism against it. Companies are required to put their backup systems in different places than the information system. This should help to restore the system in case of natural disasters like earthquakes and flooding. The main disadvantage of this procedure is that putting the backup files somewhere else, that it can take some time to get the data or even risks that the data is damaged. Both advantages and disadvantages must be considered when making a decision on the type of the backup system.
+\newline
+\newline
+Another problem with hardware components is that they are not reliable. While it is not very common nowadays, but the reliability of disks was a huge problem in the  beginning of computer science. Under no circumstances hardware should be trusted. Even the backup systems need to have some type of mechanism to protect against hardware failures.
+\newline
+\newline
+The software creates, manages, controls and restores backup files. This component is very underrated.  It is great to store the backup data in different places than the information system, but it really does not help if there is no software to access the data that is needed to restore the services. The software should be available on different devices and not just run on the backup server. While this does not seem like a large problem enterprise backup solutions are complex systems. It is possible that the company that build the backup solution doesn't have any compatible versions of the program any more.
+\subsection{Integrity}
+The next big issue with backup systems is integrity.  Even when every Bit was stored by the backup system, this does not guarantee that it is possible to restore the system. The key term for guaranteeing the recovery of the system is data integrity.
+\newline
+\newline
+This term refers to maintaining and assuring the accuracy and consistency of data over its entire life cycle. When data is backed up, the system must store the data correctly. It can cause massive problems, if even a Bit is changed.  For example it is a huge difference, if suddenly a comma is changed into a point. In America 123.000 is a complete different number than 123,000.
+\newline
+\newline
+It is also important that the backup system does not only stores the data but stores the system state. There are some very important processes running on the information system. The backup system should store their state. For example the system should backup the status changes of shipping orders.
+\subsection{Confidentiality}
+
+Security is the final important aspect for a backup system.  While on the first glance, this does not really look important for restoring the information system, but it is still very important for the management of the company. Security vulnerabilities can cause massive financial damages to the company.
+\newline
+\newline
+\emph{Encryption:}
+\newline
+\newline
+The backup files must be encrypted. The backup files can be stored on different locations and are even transferred over the internet. It would be extremely easy, to simply start a man in the middle attack to get access to the data, or even gain access to the physical storage. The backup files often contain important data like customer informations and partner companies bank account numbers. It would be disastrous for the company if attackers would gain access to those informations over the company.
+\newline
+\newline
+\emph{Access Control:}
+\newline
+\newline
+A important feature for backup solutions are access controls. Not only should the backup system encrypt the files, but the software that manages the files must be protected. The software should support state of the art access controls.
+\newline
+\newline
+\emph{Version Management:}
+\newline
+\newline
+As a last line of defense the system should support a version management system. The system should store the version number, a version date and a hash value to protect the files against outside manipulations. 
+\newpage
+\section{Required Features}
+The market for backup solutions is highly profitable. There are many companies, that offer different types of solutions for storing backup data. As discussed before, since there are many different types of risks, a certain amount of planning is required. So before choosing a backup solution certain topics need to be discussed:
+\begin{itemize}
+\item Definition of the data that needs to be backed up
+\item Definition of the frequency of backups 
+\item Definition of the capacity that is needed to store the data
+\item Definition of legal compliance requirements
+\item Definition of the location
+\item Definition of proper security
+\item Definition of the proper tasks and jobs that are required
+\item Definition of proper system states
+\item Definition of a backup window   
+\end{itemize}
+\subsection{Data Recovery Plan}
+It is important for restoring the information system of ACME to backup following data:
+\begin{itemize}
+\item Warehouse information
+\item Production informations
+\item Business partner informations
+\item Customer informations
+\item Purchase order informations
+\item Shipment informations
+\item User accounts
+\item User email accounts
+\item Web services
+\item User calendars
+\item System logs
+\end{itemize}
+\subsection{Data Backup Plan}
+It is required, to backup the data that is defined in the data recovery  plan after each working day. The purchase order informations should be stored every hour. The data should be stored in chronological order so that it is possible to access the backup data of certain days. The backups need to be stored for 7 years.   
+\subsection{Location}
+A physical copy of the backup data should not be stored in the same building and the same district as the information system. While it is not recommended, to store the backup data in the same building the risk of not controlling the physical access and the availability after disaster counterbalance the risks of storing the data in the same building. To guaranty some sort of protection every Friday after closing time an encrypted backup of each information system should be transferred to either a partner company or if this is not possible an image should be send to offices in different cities or countries.   
+\subsection{Backup Security}
+\subsubsection{Integrity}
+It should not be possible to change the backup files. Backup files must have a unique version number and a creation date. To guaranty the safety of the files, every time a information system is performing a backup a hash value has to be created for the backup files.  
+\subsubsection{Encryption Requirements}
+Every backup file should be encrypted. The encryption standards must be state of the art.  
+\subsubsection{Access Control}
+Backup system must have an access control to prevent unauthorized access to the system. This access control must be separate from the access control of the regular information system.  
+\subsection{Capacity}
+A recent survey has shown that ACME has a daily data usage of 1 Gigabyte. This includes information exchange between customers and sales agents, component supplier and the company and data created by employees. The total amount of data stored in the information system is 600 Gigabyte. Any backup solution should support at least a capacity of 40 Terabyte. Additionally it should support some types of compression algorithm.  
+
+\subsection{Backup Window}
+Since ACME is a world wide operating company backups will occur at 2 am local time. During this time services will not be available. The backup process should only take a half hour. The systems should exit the backup process in the same state as they have entered it. Every process that was started before the backup should continue after it. Every process that was started during the backup should be stored and inserted after the system is started again.
+\newpage
+\section{Types of backup solutions}
+
+\subsection{Traditional backup solutions}
+The most common type of enterprise backup solutions. Often it is a software suite and NAS servers. The software manages and controls the backup process of the data. The NAS servers, that should support at least Raid 10, store the data. The main advantage of this system set-up is the high level of security. The company can control the access of the data and can also control the encryption of the files. This level of security is also the main disadvantage of traditional backup solutions.
+\newline
+\newline
+Customers bind themselves to certain companies and technologies. It is quite problematic to transfer the backup data from one backup solution to another. It also requires additional security mechanism to transfer the data to different locations.  If the data is not transferred the chances are very high, that in case of natural disasters the backup data is lost or damaged. The transfer over the internet requires knowledge about security features and threats. The manual transfer requires a decent amount of times and also protection. Another problem with traditional backup solution is the scalability. The scaling to larger systems can lead to massive problems and can be quite expansive.
+\newline
+\newline
+\emph{Products:}
+\newline
+IBM Tivoli Storage Manager
+A hard- and software solution by IBM.
+\newline
+\newline
+Price: About 120 US Dollar for each processor value unit.
+
+\subsection{Deduplication Backup solution}
+Unlike traditional backup solutions, deduplication solutions try to eliminate duplicate copies of repeating data. In the deduplication process unique elements of the data stream are stored. If the same pattern repeats itself in the data stream, the repeating pattern is deleted and a reference to the  pattern is saved. This mechanism decreases the amount of data that is stored and helps to save storage capacity. The disadvantage of this process is the speed. The deduplication process can be quite time extensive and the integrity of the data is not one hundred percent guaranteed. The storage process works in the same way as traditional backup solutions. After the data is deduplicated it is directly stored on different hardware components.
+\newline
+\newline
+\emph{Products:}
+\newline
+EMC Data Domain:
+\newline
+Is considered by Gartner as the best deduplication solution on the market.
+\newline
+\newline
+Price: 75000 US Dollar for the DD4200
+\newline
+\newline
+\emph{DELL DR 6000:}
+\newline
+Dell offers his own hardware deduplication backup solution with the DR series.
+\newline
+\newline
+Price: 60000 US Dollar for the DR 6000 
+\subsection{Cloud based Backup solution}
+
+This phenomena started in the late 90's during the height of the dot com bubble. The increase of the internet bandwidth made it possible to store large amount of data on external servers. While the storage of data over the internet is not new, it became a hype in recent years under the name cloud.
+\newline
+\newline
+The cloud is a large number of remote server, that allow centralized storage of data.  A cloud provider offers a large group of servers and a client software to store the data on the cloud.  The backup data that is stored in the cloud, is constantly validated to guarantee whenever it is needed, the system is recoverable.  One of the main advantages of cloud based backup solutions is the scalability. The service provider can easily expand the capacity for the customer. Another advantage is that the customer does not have to pay for hardware, but he has to pay monthly fees and for the amount of data he uploads.
+\newline
+\newline
+While cloud based systems have their advantages they have serious disadvantages. The main disadvantages that should dis-encourage using cloud services is the security.  It is not possible to control the access of the backup data on the cloud. The complete access control is managed by the cloud provider. Another huge disadvantage is the fact, that customer binds their company to the cloud provider. If the cloud service goes down the customer can not access the backup data. It is also a massive problem when the customer changes the cloud provider.
+
+\subsubsection{Products:}
+
+\emph{Amazon S3:}
+\newline
+Amazon S3 is the market leader in cloud based storage solutions. It provides storage through Web services.
+\newline
+\newline
+Price: 0.15 US Dollar per Gb
+\newline
+\newline
+\emph{Microsoft Azure:}
+\newline
+A Microsoft based cloud service and infrastructure.
+\newline
+\newline
+Price: 0.02 US Dollar per Gb 
+
+\subsection{Hybrid Backup solution}
+Another approach for enterprise backup solutions are hybrid system. Hybrid system combine the advantages of different backup solutions and offer a complete package. This term was often used for physical backup solutions that offered deduplication functions. The advantage of this system was the decrease of the amount of the data. This increased the recovery time and also limited the needed capacity.
+\newline
+\newline
+The true success story of hybrid backup solution started with cloud based backup solutions. While cloud based backup solutions have a decent amount of advantages, but the risks and disadvantages made companies cautious about using them.  The solution for this problem was cloud based hybrid systems. The key words for this approach, are private and public cloud.
+\newline
+\newline
+The private cloud  grants access to the local information infrastructure with the same benefits and features of a public cloud.  The private cloud can be managed by internal personal and is protected by the company security mechanism.  The access of the cloud can be controlled and the data is stored locally.
+\newline
+\newline
+The public cloud is what most people understand under cloud computing. As previously mentioned the public cloud is managed by the storage provider and the customer pays for storing and accessing the data in the cloud.
+\newline
+\newline
+In hybrid cloud systems the customer can select, in which cloud his data is stored. With the private cloud the customer has the same advantages as with physical backup solutions. Additionally the customer can choose to save his data in the public cloud and have the same advantages as cloud based backup solutions.
+\subsubsection{Products}
+\emph{CommVault Simpana:}
+\newline
+CommVault Simpana is a hybrid cloud based storage system.  The core component is the backup software that allows data to be encrypted in transit and at rest. It provides a enterprise wide view of the data and it also provides different audit systems.  CommVault uses cloud services of different providers.
+\newline
+\newline
+Price:  Up to 2000 US Dollar per agent(one server) and up to 2000 US Dollar per software module.
+\newline
+\newline
+\emph{Datto:}
+\newline
+Datto secures the backup data locally and sends the encrypted data to the public cloud. Additionally Datto devices work as restore hubs that restore everything from files to applications.
+\newline
+\newline
+Price: 3600 US Dollar plus 600 US Dollar for each 1 TB device   
+\bibliographystyle{plain}
+\bibliography{literatur}
+\end{document}
