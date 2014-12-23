@@ -1,0 +1,265 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Vertical Line Title Page 
+% LaTeX Template
+% Version 1.0 (27/12/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Peter Wilson (herries.press@earthlink.net)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% 
+% Instructions for using this template:
+% This title page compiles as is. If you wish to include this title page in 
+% another document, you will need to copy everything before 
+% \begin{document} into the preamble of your document. The title page is
+% then included using \titleGM within your document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[oneside]{book}
+
+\newcommand*{\plogo}{\fbox{$\mathcal{PL}$}} % Generic publisher logo
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\newcommand*{\titleGM}{\begingroup % Create the command for including the title page in the document
+\hbox{ % Horizontal box
+\hspace*{0.2\textwidth} % Whitespace to the left of the title page
+\rule{1pt}{\textheight} % Vertical line
+\hspace*{0.05\textwidth} % Whitespace between the vertical line and title page text
+\parbox[b]{0.75\textwidth}{ % Paragraph box which restricts text to less than the width of the page
+
+{\noindent\Huge\bfseries ACME AG\\[0.5\baselineskip]}\\[2\baselineskip] % Title
+{\large \textit{Information Security Policy}}\\[4\baselineskip] % Tagline or further description
+{\Large \textsc{Version: 1.7}} % Author name
+
+\vspace{0.5\textheight} % Whitespace between the title block and the publisher
+{\noindent ACME $AG^{TM}$ 22.12.2014}\\[\baselineskip] % Publisher and logo
+}}
+\endgroup}
+
+%----------------------------------------------------------------------------------------
+%	BLANK DOCUMENT
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\pagestyle{empty} % Removes page numbers
+
+\titleGM % This command includes the title page
+
+
+\pagestyle{plain}
+
+{\Huge •\begin{Large}
+\textbf{Authors:}
+\end{Large}}
+\newline
+\newline
+\begin{large}
+Andreas Ntaflos			e1328682
+\end{large}
+\newline
+\newline
+\begin{large}
+Andreas Ntaflos			e0326302
+\end{large}
+\newline
+\newline
+\begin{large}
+Christoph Seidl 		0427434
+\end{large}
+
+
+\tableofcontents
+
+
+
+
+\chapter{Document Revision History:}
+
+\begin{tabular}{|c|c|c|c|}
+\hline 
+Revision & Date & Author & Status and Description \\ 
+\hline 
+1.7 & 22.12.2014 & Nta &  Change of the Software Installation Policy\\ 
+\hline 
+1.6 & 22.11.2014 & Nta & Change of the Server Security Policy \\
+\hline 
+1.5 & 22.10.2014 & Nta & Change of the Responibilities for Data Security \\ 
+\hline 
+1.4 & 22.9.2014 & Sei & Change of the Clean Desk Policy \\ 
+\hline 
+1.3 & 22.8.2014 & Sei & Change of the Roles \\ 
+\hline 
+1.2 & 22.7.2014 & Sei & Change of the Backup Policy \\ 
+\hline 
+1.1 & 22.6.2014 & Nta & Change of the Clean Desk Policy \\ 
+\hline 
+1.0 & 22.5.2014 & Nta & First Version of the IS Policy \\ 
+\hline 
+\end{tabular} 
+
+
+\chapter{Introduction}
+ACME AG has a long and proud history of being the market leader in manufacturing high end goods. The company was founded to set and redefine the standards of product quality. Every part of the company embodies the motto “Achieve greatness by building better products”. This motto does not only apply to the production of goods, but it also applies to the protection and availability of our information system. 
+\newline
+\newline
+To achieve the highest level of protection, clear standards and mechanism must be developed and executed. To fulfil this goal this document will provide security objectives and strategies and will define roles and responsibilities.
+\newline
+\newline
+The document will contain our solutions for the core principles of information security management as defined in the ISO 27002.
+
+
+
+\chapter{Security goals}
+ACME AG is committed to protect the confidentiality, integrity and availability of all physical and electronic information assets of the company. This includes every department of the company, informations about our customers and informations about our partners. The goals for this information policy are the following\cite{Host}
+\begin{itemize}
+\item Ensure that the information security standards of the company comply with regulations,laws and guidelines
+\item Establish mechanism to protect the information system against abuse, theft and other forms of harm
+\item Motivate administrators and employees to constantly improve their knowledge about information security 
+\item Ensure the availability and reliability of services
+\item Build contingency plans for continuing services after major security incidents
+\item Ensure that external service providers comply to international security standards
+\end{itemize}
+\chapter{Roles}
+Building and executing an information security policy requires a strict organization of rules and responsibilities. To achieve this, roles must be defined. Each role has its own responsibilities and certain amount of rights. ACME defines following roles\cite{Host}:
+\section{Owner of the Security Policy}
+The CEO of the company is in charge of the information security policy. He delegates every responsibility about the information security to the Chief Security Officer. Changes to the information security policy must be reviewed and approved by the CEO. 
+\section{Chief Security Officer}
+The Chief Security Officer's main responsibility is to control and adapt the information security of the company.  He is in charge of executing the policy and he is also the only person that can suggests changes to the security policy. 
+\section{System Owner}
+The System owner in cooperation with the IT department is responsible for building and maintaining the information stored on a system. He is also in charge of implementing access control to the information system. The System owner defines user roles and defines which user group has access to which part of the system.  
+\section{System Administrator}
+System Administrators operate the information systems of the company. Each information system of the company has at least one or more administrators. They are responsible for protecting and maintaining the confidentiality and availability of the data stored in the system. They are also responsible for restoring the systems after security incidents and other type of incidents. They will also implement the security protection mechanism according to this policy. 
+\section{User}
+Employees are required to get acquainted with ACME AG information security policy. They should follow every aspect of the information security policy and violations should be dealt with extreme prejudice. In the case of questions about the policy employees should ask the system owner or the system administrators.   
+\section{Consultants and contractual partner}
+External partners are only allowed to access the internal information system after signing a confidentiality agreement. They are only allowed to access system parts they have clearance. For accessing other parts of the systems the approval of the system administrator or the system owner is required. 
+\chapter{Risk Management}
+\begin{itemize}
+\item The first step in building a information security policy is to determine the different sensitivity or critically of the data stored in the network. To build an appropriate security policy a risk assessments must be done. In this process each information must be identified and classified.  Each information must be categorized after consequences and like hood of security breaches\cite{Host}. 
+\item This risk assessment must be done by each department.  After this assessment the result must be reviewed by the CEO. 
+\item Each department must identify information assets that exist in their department.  After finding the assets, it must be defined who owns the assets and they must be classified according to rules defined by the CEO and the CSO.
+\item After classifying the assets rules for  the acceptable use must be defined and documented. 
+\item The risk assessment must be done periodically and include every department of the company. 
+\end{itemize}
+\chapter{Reporting}
+\section{Purpose}
+This policy serves to protect the company against damages caused  by security breaches and to restore operations after incidents. This policy should provide a clear chain of communication for reporting incidents, so that the appropriate persons are informed as soon as possible\cite{Ox}. 
+\section{Policy}
+\subsection{Users:} 
+Users must report immediately every security incidents to system administrators and system owners. 
+\subsection{System Administrators:}
+System administrators must report immediately every incidents to the system owners. According to the level of the security breach the CSO must be informed.
+\newline  
+If the threat is a class A incident counter actions must be performed accordingly to the company policy. Also the CEO must be informed.
+\newline
+If the threat is a class B incident the CSO must be informed during the next department meeting.  The incident must be reviewed by the system administrator and the system owner and possible scenarios must be developed to protect against the same type of attack. 
+\newline
+If the threat is a class C incident the system administrator must inform the person that violated the information security policy about the violation.   
+\section{Definition}
+\subsection{Threat Level A:}
+Highest threat level of the organization. An unauthorized attack against high value informations was detected.  
+\subsection{Threat Level B:} 
+An unauthorized access attempt was detected. 
+\subsection{Threat Level C:}
+Is a small violation against the information security policy of the company.  
+\chapter{Acceptable Use Policy}
+\section{Purpose}
+The purpose of this policy is to give employees a guideline in acceptable use of company equipment. This policy should protect users and the company against possible treats like viruses,  attacks on the computer networks and legal issues\cite{Sans}.
+\section{Scope}
+This policy applies to every employee, external personal and temporary worker. It applies to every type of telecommunication equipment that is connected to our services and it also applies to every computer or other device that is connected through the network of ACME AG.  
+\section{Policy}
+\begin{itemize}
+\item Every information that is stored on devices owned or leased by the ACME AG is property of the company. Every information should be protected with the highest standards of data security.
+\item Employees have to immediately report the  theft or loss of  devices.
+\item To control and to protect the network authorized personal are allowed to monitor the traffic of the devices.
+\item ACME AG reserves the rights to change the user rights of the device.
+\item All devices that are connected to the internet must fulfil the basic protection standards of the company.
+\item Employees must clarify when posting in forums that they are not expressing the opinion of the company. 
+\item Password must comply with company policies regarding passwords.
+\item Employees must be extremely cautious about opening attachments from unknown email addresses.
+\item Each device must be secured with password protected screen savers.
+\end{itemize}
+\chapter{Clean Desk Policy}
+\section{Purpose}
+The purpose of this policy is to protect informations about our employees and intellectual property of ACME AG. Every important information must be locked away\cite{Sans}.
+\section{Scope} 
+This policy applies to every member of this company.
+\section{Policy}
+\begin{itemize}
+\item Every employee is required to ensure that every information is locked away if he or she leaves work  at the end of the day or when the person leaves his or her workplace for a extended period.
+\item Computers must be locked during the day and shut down after work.
+\item Whiteboards containing informations should be cleaned.
+\item Information that is no longer required should be destroyed.
+\item Portable devices should be treated as important information and should be locked away.
+\end{itemize}
+\chapter{Disaster Recovery Plan Policy}
+\section{Purpose}
+The purpose of this policy is to define a disaster recovery plan that describes the process of restoring the services and data of the ACME AG information system\cite{Sans}.
+\section{Scope}
+This policy is directed at the system owners. They should ensure that there is contingency plan in case of disasters. This plan should be developed, tested and regularly adapted\cite{Sans}.
+\section{Policy}
+\begin{itemize}
+\item Data Study: List every information stored in the system
+\item Computer Emergency Plan: Action plan for certain scenarios
+\item Service List: A list of services ordered by their importance.
+\item Data Backup and Restoration Plan: A detailed plan to restore the information system.
+\item Equipment Replacement Plan: A list ordered by the importance of the equipment and places to buy replacements. 
+\end{itemize}
+\chapter{Email Policy}
+\section{Purpose}
+The purpose of this policy is to set a guideline about the use of the company email services. It should protect the company against unacceptable use of the email system\cite{Sans}.
+\section{Scope}
+This policy applies to every email sent by an email address of the company. 
+\section{Policy}
+\begin{itemize}
+\item Email accounts should be primarily used for company business. 
+\item All data contained in the email must fulfill the data protection standards.
+\item Emails should only be retained if they qualify as business record.
+\item Employees are not allowed to contribute offensive material and should report offensive material.
+\item Users are not allowed to use third party email systems
+\item Personal emails are allowed but must be stored in different folders.
+\item If there is any suspicion of violation of the information security policy the company is allowed to monitor the email traffic of employees.  
+\end{itemize}
+\chapter{Password Protection Policy}
+\section{Purpose}
+Purpose of the policy is to create strong password to protect the system\cite{Sans}. 
+\section{Scope}
+This policy applies to every person with an manageable account.
+\section{Policy}
+\begin{itemize}
+\item The password must contain at least 6 characters. 
+\item The password must contain at least 1 number.
+\item The password must contain at least 1 special number.
+\item Users must use different passwords for different accounts.
+\item All passwords must be changed at least every month.
+\item Passwords must not be shared with anyone.
+\item Passwords must not be written down.
+\item User should not use the remember password functions.
+\end{itemize}
+\chapter{Software Installation Policy}
+\section{Purpose}
+The purpose of this policy is to create a guideline for installing software on company devices. This should help to protect the company against malware, exposure of sensitive informations\cite{Sans}. 
+\section{Scope}
+This policy applies to every employees and partners of the ACME AG. It covers every device that is somehow connected to the network.
+\section{Policy}
+\begin{itemize}
+\item Employees are not allowed to install software on devices owned or leased by the ACME AG.
+\item Software request must be approved by the system administrators and the system owners. The request must be documented.
+\item System administrator will obtain the licenses for the software and test the software for possible issues with the system.
+\end{itemize}
+\bibliographystyle{plain}
+\bibliography{literatur}
+\end{document}
