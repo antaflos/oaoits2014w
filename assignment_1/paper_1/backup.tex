@@ -27,7 +27,7 @@ Another problem with hardware components is that they are not reliable. While it
 \newline
 The software creates, manages, controls and restores backup files. This component is very underrated.  It is great to store the backup data in different places than the information system, but it really does not help if there is no software to access the data that is needed to restore the services. The software should be available on different devices and not just run on the backup server. While this does not seem like a large problem enterprise backup solutions are complex systems. It is possible that the company that build the backup solution doesn't have any compatible versions of the program any more.
 \subsection{Integrity}
-The next big issue with backup systems is integrity.  Even when every Bit was stored by the backup system, this does not guarantee that it is possible to restore the system. The key term for guaranteeing the recovery of the system is data integrity.
+The next big issue with backup systems is integrity.  Even when every Bit was stored by the backup system, this does not guarantee that it is possible to restore the system. The key term for guaranteeing the recovery of the system is data integrity\cite{WikiD}.
 \newline
 \newline
 This term refers to maintaining and assuring the accuracy and consistency of data over its entire life cycle. When data is backed up, the system must store the data correctly. It can cause massive problems, if even a Bit is changed.  For example it is a huge difference, if suddenly a comma is changed into a point. In America 123.000 is a complete different number than 123,000.
@@ -119,14 +119,14 @@ A hard- and software solution by IBM.
 Price: About 120 US Dollar for each processor value unit.
 
 \subsection{Deduplication Backup solution}
-Unlike traditional backup solutions, deduplication solutions try to eliminate duplicate copies of repeating data. In the deduplication process unique elements of the data stream are stored. If the same pattern repeats itself in the data stream, the repeating pattern is deleted and a reference to the  pattern is saved. This mechanism decreases the amount of data that is stored and helps to save storage capacity. The disadvantage of this process is the speed. The deduplication process can be quite time extensive and the integrity of the data is not one hundred percent guaranteed. The storage process works in the same way as traditional backup solutions. After the data is deduplicated it is directly stored on different hardware components.
+Unlike traditional backup solutions, deduplication solutions try to eliminate duplicate copies of repeating data. In the deduplication process unique elements of the data stream are stored. If the same pattern repeats itself in the data stream, the repeating pattern is deleted and a reference to the  pattern is saved\cite{WikiDe}. This mechanism decreases the amount of data that is stored and helps to save storage capacity. The disadvantage of this process is the speed. The deduplication process can be quite time extensive and the integrity of the data is not one hundred percent guaranteed. The storage process works in the same way as traditional backup solutions. After the data is deduplicated it is directly stored on different hardware components.
 \newline
 \newline
 \emph{Products:}
 \newline
 EMC Data Domain:
 \newline
-Is considered by Gartner as the best deduplication solution on the market.
+Is considered by Gartner\cite{Gart} as the best deduplication solution on the market.
 \newline
 \newline
 Price: 75000 US Dollar for the DD4200
@@ -195,5 +195,5 @@ Datto secures the backup data locally and sends the encrypted data to the public
 \newline
 Price: 3600 US Dollar plus 600 US Dollar for each 1 TB device   
 \bibliographystyle{plain}
-\bibliography{literatur}
+\bibliography{literatur1}
 \end{document}
