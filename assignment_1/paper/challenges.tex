@@ -1,4 +1,4 @@
-﻿\section{Challenges and potential problems}
+\section{Challenges and potential problems}
 
 \subsection{Scalability}
 Scalability is the ability of a system to provide throughput in
@@ -57,16 +57,16 @@ complementing paradigms.
 \subsection{Interoperability}
 
 Interoperability is the ability of the backup solution to be able to
-support any system type operated by the business. 
+support any system type operated by the business.
 
 The biggest problem with a cross-platform backup solution is file system
 format incompatibilities. Files to be backed up have to be packaged in a
 format that won't cause their metadata to get altered or destroyed, so
-they will be restored as normal after a disaster scenario. 
+they will be restored as normal after a disaster scenario.
 
 Further cases of interoperability issues can include the following:
 \begin{itemize}
-    \item What happens if a file is locked or “busy” during backup?
+    \item What happens if a file is locked or ``busy'' during backup?
     \item What happens if a number of files changes between the time a backup starts and ends?
     \item How are files larger than 2GB handled?
 \end{itemize}
@@ -100,7 +100,7 @@ solution. %[2]
 Especially for Cloud solutions, fear of vendor lock-in is clearly a
 legitimate concern. There are no widely adopted standards in place today
 to ensure that data can be freely moved among different cloud storage
-service providers’ sites. It seems to be more difficult and more costly
+service providers' sites. It seems to be more difficult and more costly
 to transfer data out of a cloud storage repository than it is to upload
 it in the first place. The more data there is, the harder it is to move;
 and if the user wants to move the data to a new cloud provider the
@@ -113,12 +113,12 @@ go along with it, the following guidelines are to be taken into
 consideration:
 
 \begin{itemize}
-	\item Read the fine print of each provider’s policies, and if
+	\item Read the fine print of each provider's policies, and if
 		necessary, ask them directly how they facilitate moving customer
 		data out of their cloud storage repository. Given the amount of
 		data and its expected growth over time, could the data be moved
 		via the Internet back into your data center in a reasonable
-		timeframe or to a different provider’s site? As an alternative,
+		timeframe or to a different providers' site? As an alternative,
 		if the volume of data is too large for digital transfer, can it
 		be moved via a portable storage device? What's the process,
 		timeframe and cost required for each of these approaches?
@@ -126,7 +126,7 @@ consideration:
 		services to facilitate the movement of large amounts of data.
 		For example, while most providers require that customers moving
 		data between clouds first download data to an intermediate
-		location (e.g., the customer’s data center) and then re-upload
+		location (e.g., the customer's data center) and then re-upload
 		the data to a new cloud. Some cloud gateway vendors %[3]
 		are also
 		making migration easier by integrating with different cloud
@@ -188,7 +188,7 @@ vendor. 54\% of companies using three or more data protection solutions
 reported unplanned downtime, while only 42\% of companies using a single
 vendor reported downtime. Similarly, 38\% of those using three or more
 vendors experienced data loss compared to 24\% of those who use single
-vendors.  
+vendors.
 
 \subsubsection{Impact on Costs}
 
@@ -233,7 +233,7 @@ Meeting the demands of big data backup require both retooling your
 approach to data capture and the use of optimization technologies. The
 topology of backup targets must evolve from the typical data-centric
 model to a more globally dispersed, flexible deployment approach to
-achieve better scale and data protection coverage. 
+achieve better scale and data protection coverage.
 
 \begin{figure}[t]
     \begin{center}
@@ -247,8 +247,8 @@ Petabyte-size data stores can play havoc with backup windows, and
 traditional backup is not designed to handle millions of small files.
 Fortunately not all big data information needs to be backed up in the
 traditional way. Before considering how to protect your data, you should
-decide at what data needs to be protected. Machine-generated data –
-report data from a database, for instance – can be reproduced easier
+decide at what data needs to be protected. Machine-generated data
+report data from a database, for instance can be reproduced easier
 than it can be backed up and recovered. Compare the cost of protecting
 data with the cost of regenerating the data. In many instances, source
 data will need to be protected, but any post-acquisition processes may
@@ -339,7 +339,7 @@ Robust dashboard functionality can not only enable a single
 administrator to manage more backup data, it can also enable them to
 reduce inefficiencies in their backup environment, plan for future
 capacity needs, and ensure restore Service Level Agreements (SLAs) are
-achievable. 
+achievable.
 
 While the impact on morale is harder to quantify, the human costs of
 sprawl can quickly affect the bottom line with increased staff turnover,
